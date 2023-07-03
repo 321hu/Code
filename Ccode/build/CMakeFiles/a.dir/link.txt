@@ -1,0 +1,3 @@
+C:\cmake-3.26.4-windows-x86_64\bin\cmake.exe -E rm -f CMakeFiles\a.dir/objects.a
+C:\TDM-GCC-64\bin\ar.exe qc CMakeFiles\a.dir/objects.a @CMakeFiles\a.dir\objects1.rsp
+g++ -g -Wl,--whole-archive CMakeFiles\a.dir/objects.a -Wl,--no-whole-archive -o D:\Code\Ccode\cmake-test\bin\a.exe -Wl,--out-implib,D:\Code\Ccode\cmake-test\bin\liba.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\a.dir\linkLibs.rsp
