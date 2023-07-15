@@ -29,12 +29,19 @@
 #     print("\r{:3}%".format(i),end=' ')
 #     time.sleep(0.001)
 
-def change(a):
-    print(id(a))   # 指向的是同一个对象
-    a=10
-    print(id(a))   # 一个新对象
+# def change(a):
+#     print(id(a))   # 指向的是同一个对象
+#     a=10
+#     print(id(a))   # 一个新对象
  
-a=1
-print(id(a))
-change(a)
-print(id(a))
+# a=1
+# print(id(a))
+# change(a)
+# print(id(a))
+
+min, max = 125, 50
+if min >= max:
+    min, max = max, min
+while min != 0:
+    max, min = min, max % min
+print(max)
