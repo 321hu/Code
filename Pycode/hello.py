@@ -1,31 +1,47 @@
-# /usr/bin/env python3
-# list = [34,6,7,0,0,0,9]
-# n = 0
-# for i in list:
-#     if i == 0:
-#         list.remove(i)
-#         n += 1
-#         print('#',end='')
-#         print(n)
-# print(n)
-# print('hell0')
-names = ['Alice', 'Bob', 'Charlie']
-ages = [25, 30, 22]
-countries = ['USA', 'Canada', 'Australia']
+#print('Hello World!31231')
+# n = int(input())
+# for i in range(1,n+1):
+#     for j in range(1,i+1):
+#         print("* ",end="")
+#     print()
 
-# 使用zip函数将对应位置的元素打包成元组
-zipped_data = zip(names, ages, countries)
-# 将迭代器转换为列表
-zipped_list = list(zipped_data)
+# str='123456789'
+ 
+# print(str)                 # 输出字符串
+# print(str[0:-1])           # 输出第一个到倒数第二个的所有字符
+# print(str[0])              # 输出字符串第一个字符
+# print(str[2:5])            # 输出从第三个开始到第五个的字符
+# print(str[2:])             # 输出从第三个开始后的所有字符
+# print(str[1:5:2])          # 输出从第二个开始到第五个且每隔一个的字符（步长为2）
+# print(str * 2)             # 输出字符串两次
+# print(str + '你好')         # 连接字符串
+ 
+# print('------------------------------')
+ 
+# print('hello\nrunoob')      # 使用反斜杠(\)+n转义特殊字符
+# print(r'hello\nrunoob')
+# print('\n')
+# print(r'\n') 
 
-# print(zipped_list)
-# print(zipped_data)
+# import time
 
-from itertools import zip_longest
-odd = [1,3,5,7]
-even = [2,4,6,8,10]
-for i in zip(odd, even):
-    print(i, end=',')
-print()
-for i in zip_longest(odd, even):
-    print(i, end=',')
+# for i in range(101):
+#     print("\r{:3}%".format(i),end=' ')
+#     time.sleep(0.001)
+
+# def change(a):
+#     print(id(a))   # 指向的是同一个对象
+#     a=10
+#     print(id(a))   # 一个新对象
+ 
+# a=1
+# print(id(a))
+# change(a)
+# print(id(a))
+
+min, max = 125, 50
+if min >= max:
+    min, max = max, min
+while min != 0:
+    max, min = min, max % min
+print(max)
