@@ -1,22 +1,16 @@
-CC := g++ #不要修改
-
-OBJS := test.o header.o
-TARGET := test
-CFLAG := -O3 -Wall -g -MMD #MMD可以生成.d文件 #不要修改
-DEPS := $(OBJS:.o=.d) #不要修改
-
-all: $(TARGET)
+CC := g++
+OBJS := main.o Solve.o
+TARGET := project1
 
 $(TARGET): $(OBJS)
 	$(CC) $^ -o $@
-	./$(TARGET)
-
--include $(DEPS)
 
 %.o: %.cpp
-	$(CC) $(CFLAG) -c $^ -o $@
+	$(CC) -c $^ -o $@
+
+run: $(TARGET)
+	./$(TARGET)
 
 clean:
 	del *.exe
-	del *.d
-	del $(OBJS)
+	del *.o
