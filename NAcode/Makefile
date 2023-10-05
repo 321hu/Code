@@ -1,5 +1,5 @@
 CC := g++
-OBJS := main.o Solve.o
+OBJS := F.o Solve.o
 TARGET := project1
 
 $(TARGET): $(OBJS)
