@@ -15,7 +15,7 @@ auto dfunc = [](double h) { return -20.0/sqrt(1-h*h); };
 
 int main() {
     double L = 10, r = 1, V = 12.4;
-    cout << "----------------------" << endl;
+    cout << "----------------------E" << endl;
     // 二分法取区间为[0, 1]
     BisectionSolver bisection;
     vector<double> result1 = bisection.solve(0, 1, func);

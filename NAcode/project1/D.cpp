@@ -14,7 +14,7 @@ auto func2 = [](double x) { return exp(x) - tan(x); };
 auto func3 = [](double x) { return x*x*x - 12*x*x + 3*x + 1; };
 
 int main() {
-    cout << "----------------------" << endl;
+    cout << "----------------------D" << endl;
     SecantSolver secant;
     vector<double> result1 = secant.solve(0, Pi*0.5, func1);
     cout << "Question1:" << endl

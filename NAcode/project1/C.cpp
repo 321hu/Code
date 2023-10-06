@@ -13,7 +13,7 @@ auto func = [](double x) { return tan(x) - x; };
 auto dfunc = [](double x) { return 1.0/(cos(x)*cos(x)) - 1; };
 
 int main() {
-    cout << "----------------------" << endl;
+    cout << "----------------------C" << endl;
     NewtonSolver newton;
     vector<double> result1 = newton.solve(4.5, func, dfunc);
     cout << "x0 = 4.5:" << endl

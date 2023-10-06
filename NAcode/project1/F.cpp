@@ -10,7 +10,8 @@
 using namespace std;
 
 int main() {
-    cout << "----------------------" << endl;
+    cout << "----------------------F" << endl;
+
     //（a）
     double beta1 = 11.5 * Pi / 180.0, l = 89, h = 49, D = 55;
     double A = l*sin(beta1), B = l*cos(beta1), 
@@ -21,16 +22,14 @@ int main() {
     };
     BisectionSolver bisection;
     vector<double> result1 = bisection.solve(0, Pi*0.25, func_a);
-    cout << "(a)alpha = " << result1[0] * 180.0 / Pi << endl;
+    cout << "(a)Newton" << endl
+        << "alpha = " << result1[0] * 180.0 / Pi << endl;
     cout << "---------" << endl;
+
     // （b）
     double D_b = 30;
     double C_b = (h+0.5*D_b)*sin(beta1) - 0.5*D_b*tan(beta1),
         E_b = (h+0.5*D_b)*cos(beta1) - 0.5*D_b;
-
-
-    // cout << C << " " << E << endl << C_b << " " << E_b << endl;
-
     auto func_b = [A, B, C_b, E_b](double x) {
         return A*sin(x)*cos(x) + B*sin(x)*sin(x) - C_b*cos(x) - E_b*sin(x);
     };
@@ -43,6 +42,7 @@ int main() {
     cout << "(b)Newton, x0 = " << x0 << endl
         << "alpha = " << result2[0] * 180.0 / Pi << endl;
     cout << "---------" << endl;
+
     // （c）
     SecantSolver secant;
     double x1 = 6000*Pi/180.0;
