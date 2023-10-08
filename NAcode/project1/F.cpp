@@ -21,7 +21,8 @@ int main() {
         return A*sin(x)*cos(x) + B*sin(x)*sin(x) - C*cos(x) - E*sin(x);
     };
     BisectionSolver bisection;
-    vector<double> result1 = bisection.solve(0, Pi*0.25, func_a);
+    Init* init_f1 = new Init(0, Pi*0.25, func_a);
+    vector<double> result1 = bisection.solve(init_f1);
     cout << "(a)Newton" << endl
         << "alpha = " << result1[0] * 180.0 / Pi << endl;
     cout << "---------" << endl;
@@ -38,7 +39,8 @@ int main() {
     };
     NewtonSolver newton;
     double x0 = 33*Pi/180.0;
-    vector<double> result2 = newton.solve(x0, func_b, dfunc_b);
+    Init* init_f2 = new Init(x0, func_b, dfunc_b);
+    vector<double> result2 = newton.solve(init_f2);
     cout << "(b)Newton, x0 = " << x0 << endl
         << "alpha = " << result2[0] * 180.0 / Pi << endl;
     cout << "---------" << endl;
@@ -47,10 +49,13 @@ int main() {
     SecantSolver secant;
     double x1 = 6000*Pi/180.0;
     // double x1 = 60*Pi/180.0;
-    vector<double> result3 = secant.solve(x0, x1, func_b);
+    Init* init_f3 = new Init(x0, x1, func_b);
+    vector<double> result3 = secant.solve(init_f3);
     cout << "(c)Secant, x0 = " << x0 << ", x1 = " << x1 << endl
         << "x_{n}: " << result3[0] * 180.0 / Pi
         << ", x_{n-1}: " << result3[1] * 180.0 / Pi << endl;
     cout << "---------" << endl;
+
+    delete init_f1, init_f2, init_f3;
     return 0;
 }

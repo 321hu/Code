@@ -9,32 +9,38 @@ using namespace std;
 
 int sgn(double x);
 
+class Init 
+{
+public:
+    double x0, x1;
+    function<double(double)> func, dfunc;
+    Init(double left, double right, function<double(double)> func);
+    Init(double x0, function<double(double)> func, function<double(double)> dfunc);
+};
+
 class EquationSolver
 {
 public:
-    virtual vector<double> solve();
+    virtual vector<double> solve(Init* init) = 0;
 };
 
-class BisectionSolver : virtual public EquationSolver
+class BisectionSolver : public EquationSolver
 {
 public:
-    vector<double> solve(double left, double right, 
-                function<double(double)> func);
+    vector<double> solve(Init* init);
 };
 
 class NewtonSolver : virtual public EquationSolver
 {
 public:
-    vector<double> solve(double x0, function<double(double)> func, 
-                function<double(double)> dfunc);
+    vector<double> solve(Init* init);
+    
 };
-
 
 class SecantSolver : virtual public EquationSolver
 {
 public:
-    vector<double> solve(double x0, double x1, 
-                function<double(double)> func);
+    vector<double> solve(Init* init);
 };
 
 #endif

@@ -18,7 +18,8 @@ int main() {
     cout << "----------------------E" << endl;
     // 二分法取区间为[0, 1]
     BisectionSolver bisection;
-    vector<double> result1 = bisection.solve(0, 1, func);
+    Init* init_e1 = new Init(0, 1, func);
+    vector<double> result1 = bisection.solve(init_e1);
     cout << "Bisection:" << endl
         << "root: " << result1[0] 
         << ", width of interval: " << result1[1] 
@@ -26,18 +27,22 @@ int main() {
     cout << "---------" << endl;
     // 牛顿迭代法取x0 = 0.15
     NewtonSolver newton;
-    vector<double> result2 = newton.solve(0.15, func, dfunc);
+    Init* init_e2 = new Init(0.15, func, dfunc);
+    vector<double> result2 = newton.solve(init_e2);
     cout << "Newton, x0 = 0.15:" << endl
         << "root: " << result2[0]
         << ", maximum iterative count: " << result2[1] << endl;
     cout << "---------" << endl;
     // 割线法取x0 = 0，x1 = 0.5
     SecantSolver secant;
-    vector<double> result3 = secant.solve(0, 0.5, func);
+    Init* init_e3 = new Init(0, 0.5, func);
+    vector<double> result3 = secant.solve(init_e3);
     cout << "Secant:" << endl
         << "x_{n}: " << result3[0] 
         << ", x_{n-1}: " << result3[1] 
         << ", maximum iterative count: " << result3[2] << endl;
     cout << "---------" << endl;
+
+    delete init_e1, init_e2, init_e3;
     return 0;
 }

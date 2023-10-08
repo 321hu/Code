@@ -23,17 +23,31 @@
 
 核心代码分析如下：
 
+- 构造一个用于储存参数的类`Init`用于储存`solve()`函数用到的参数：
+
+  ```c++
+  class Init 
+  {
+  public:
+      double x0, x1;
+      function<double(double)> func, dfunc;
+      Init(double left, double right, function<double(double)> func);
+      Init(double x0, function<double(double)> func, function<double(double)> dfunc);
+  };
+  ```
+
+  在使用时，`Init* init;`的目的在于使函数接口统一化，便于实现抽象类的构造（实质为纯虚函数的构造）。
+
 - 派生类的`solve()`函数（以二分法为例）：
 
   ```c++
-  vector<double> solve(double left, double right, 
-                  function<double(double)> func);
+  vector<double> solve(Init* init);
   ```
-
+  
   1. 函数返回类型选用`vector<double>`是考虑到有多个返回值；
-  2. 参数表中包括`function<double(double)> func`，这是将另一个函数`func()`传入`solve()`中；
-  3. 具体实现按照相应方法的思路即可。
-
+  2. 传入的参数是类指针`init`，其包括`solve()`函数中所用到的参数；
+  3. 三种方法的具体实现按照相应方法的思路即可。
+  
 - `lambda`函数块：
 
   ```c++
@@ -41,21 +55,21 @@
   ```
 
   1. 这个`lambda`函数没有名称，而是将其赋值给变量 `func1`。`func1`接受一个参数 `x`。
-  2. 此时`func1`可作为参数传入`solve()`函数。
+  2. 此时`func1`可作为参数首先传入进入储存参数的类中，再通过这个类的实例对象传入`solve()`函数中。
 
 ### Test results and Analysis
 
 - `B`题：
 
-  <img src=".\res_pic\B.png" alt="B" style="zoom:40%;" />
+  <img src=".\res_pic\B.png" alt="B" style="zoom:35%;" />
 
 - `C`题：
 
-  <img src=".\res_pic\C.png" alt="C" style="zoom:70%;" />
+  <img src=".\res_pic\C.png" alt="C" style="zoom:60%;" />
 
 - `D`题：
 
-  <img src=".\res_pic\D.png" alt="D" style="zoom:45%;" />
+  <img src=".\res_pic\D.png" alt="D" style="zoom:40%;" />
 
 - `E`题：
 
