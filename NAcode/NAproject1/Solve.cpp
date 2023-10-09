@@ -5,6 +5,10 @@
 #include "Solve.h"
 using namespace std;
 
+/**
+ * @brief 计算sng(x)
+ * @return 返回x的符号数值
+*/
 int sgn(double x) {
     if(x > 0)
         return 1;
@@ -13,13 +17,18 @@ int sgn(double x) {
     return -1;
 }
 
-// // 此构造函数适用于二分法和割线法
+// 此构造函数适用于二分法和割线法
 Init::Init(double x0, double x1, function<double(double)> func)
     : x0(x0), x1(x1), func(func) { }
 
+// 此构造函数适用于牛顿迭代法
 Init::Init(double x0, function<double(double)> func, function<double(double)> dfunc)
     :  x0(x0), func(func), dfunc(dfunc) { }
 
+/**
+ * @brief 二分法对应求解函数
+ * @return 返回{根、区间长度、最大迭代次数}
+*/
 vector<double> BisectionSolver::solve(Init* init)
 {
     double left = init->x0, right = init->x1;
@@ -48,6 +57,10 @@ vector<double> BisectionSolver::solve(Init* init)
     return {root, width, iter_cnt};
 }
 
+/**
+ * @brief 牛顿迭代法对应求解函数
+ * @return 返回{根、最大迭代次数}
+*/
 vector<double> NewtonSolver::solve(Init* init)
 {
     double x0 = init->x0;
@@ -66,6 +79,10 @@ vector<double> NewtonSolver::solve(Init* init)
     return {x, iter_cnt};
 }
 
+/**
+ * @brief 割线法对应求解函数
+ * @return 返回{x_{n}，x_{n-1}，最大迭代次数}
+*/
 vector<double> SecantSolver::solve(Init* init)
 {
     double x0 = init->x0, x1 = init->x1;

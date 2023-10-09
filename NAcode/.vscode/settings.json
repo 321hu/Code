@@ -4,6 +4,7 @@
         "functional": "cpp",
         "vector": "cpp",
         "cmath": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iomanip": "cpp"
     }
 }

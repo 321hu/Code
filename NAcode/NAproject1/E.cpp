@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+#include <iomanip> 
 #include <iostream>
 #include <cmath>
 #include <functional>
@@ -21,7 +22,7 @@ int main() {
     Init* init_e1 = new Init(0, 1, func);
     vector<double> result1 = bisection.solve(init_e1);
     cout << "Bisection:" << endl
-        << "root: " << result1[0] 
+        << "root: " << setprecision(2) << result1[0] 
         << ", width of interval: " << result1[1] 
         << ", maximum iterative count: " << result1[2] << endl;
     cout << "---------" << endl;
@@ -30,7 +31,7 @@ int main() {
     Init* init_e2 = new Init(0.15, func, dfunc);
     vector<double> result2 = newton.solve(init_e2);
     cout << "Newton, x0 = 0.15:" << endl
-        << "root: " << result2[0]
+        << "root: " << setprecision(2) << result2[0]
         << ", maximum iterative count: " << result2[1] << endl;
     cout << "---------" << endl;
     // 割线法取x0 = 0，x1 = 0.5
@@ -38,8 +39,8 @@ int main() {
     Init* init_e3 = new Init(0, 0.5, func);
     vector<double> result3 = secant.solve(init_e3);
     cout << "Secant:" << endl
-        << "x_{n}: " << result3[0] 
-        << ", x_{n-1}: " << result3[1] 
+        << "x_{n}: " << setprecision(2) << result3[0] 
+        << ", x_{n-1}: " << setprecision(2) << result3[1] 
         << ", maximum iterative count: " << result3[2] << endl;
     cout << "---------" << endl;
 

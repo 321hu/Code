@@ -1,6 +1,7 @@
 CC := g++
-OBJS := B.o Solve.o
-TARGET := project1
+OBJS := test.o
+# OBJS := test.o header.o
+TARGET := program
 
 $(TARGET): $(OBJS)
 	$(CC) $^ -o $@

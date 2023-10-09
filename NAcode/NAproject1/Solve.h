@@ -9,6 +9,9 @@ using namespace std;
 
 int sgn(double x);
 
+/**
+ * @brief 用于存放参数的类
+*/
 class Init 
 {
 public:
@@ -21,7 +24,7 @@ public:
 class EquationSolver
 {
 public:
-    virtual vector<double> solve(Init* init) = 0;
+    virtual vector<double> solve(Init* init) = 0; // pure virtual function
 };
 
 class BisectionSolver : public EquationSolver
