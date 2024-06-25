@@ -1,5 +1,6 @@
 CC := g++
-OBJS := test.o
+OBJS := Polymorphism_test.o
+# OBJS := test.o
 # OBJS := test.o header.o
 TARGET := program
 
@@ -13,5 +14,5 @@ run: $(TARGET)
 	./$(TARGET)
 
 clean:
-	del *.exe
-	del *.o
+	rm *.exe
+	rm *.o

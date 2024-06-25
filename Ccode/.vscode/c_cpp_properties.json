@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}"
             ],
             "defines": [
                 "_DEBUG",
@@ -11,11 +11,12 @@
                 "__GNUC__=6",
                 "__cdecl=__attribute__((__cdecl__))"
             ],
-            "compilerPath": "D:\\mingw64\\bin\\g++.exe",
+            "compilerPath": "C:/TDM-GCC-64/bin/g++.exe",
+            // "compilerPath": "D:/LibSoftware/mingw64/bin"
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-x64",
-            "compileCommands": "${workspaceFolder}/cmake-test/build/compile_commands.json",
+            // "compileCommands": "${workspaceFolder}/cmake-test/build/compile_commands.json",
             "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
